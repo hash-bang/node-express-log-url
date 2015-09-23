@@ -1,4 +1,4 @@
-var colors = require('colors');
+var colors = require('chalk');
 
 module.exports = function(req, res, finish) {
 	var newEnd = res.end;

@@ -1,11 +1,8 @@
 {
   "name": "express-log-url",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "ExpressJS pretty printer for URLs",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hash-bang/node-express-log-url.git"
@@ -25,4 +22,7 @@
     "url": "https://github.com/hash-bang/node-express-log-url/issues"
   },
   "homepage": "https://github.com/hash-bang/node-express-log-url#readme"
+  "dependencies": {
+    "chalk": "^1.1.1"
+  }
 }
