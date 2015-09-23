@@ -21,7 +21,7 @@
   "bugs": {
     "url": "https://github.com/hash-bang/node-express-log-url/issues"
   },
-  "homepage": "https://github.com/hash-bang/node-express-log-url#readme"
+  "homepage": "https://github.com/hash-bang/node-express-log-url#readme",
   "dependencies": {
     "chalk": "^1.1.1"
   }
