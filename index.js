@@ -9,10 +9,11 @@ module.exports = function(req, res, finish) {
 
 		console.log(
 			(
-				req.method == 'GET' ? colors.green('GET ') :
-				req.method == 'POST' ? colors.green.bgWhite('POST') :
-				req.method == 'PUT' ? colors.green.bgWhite('PUT '):
+				req.method == 'GET' ? colors.green('GET  ') :
+				req.method == 'POST' ? colors.green.bgWhite('POST ') :
+				req.method == 'PUT' ? colors.green.bgWhite('PUT  '):
 				req.method == 'DELETE' ? colors.green.bgWhite('DELETE'):
+				req.method == 'PATCH' ? colors.green.bgWhite('PATCH') :
 				colors.green(req.method)
 			) + ' ' +
 			(
