@@ -12,17 +12,17 @@ module.exports = function(req, res, finish) {
 			indent +
 			(
 				req.method == 'GET' ? colors.green('GET  ') :
-				req.method == 'POST' ? colors.green.bgWhite('POST ') :
-				req.method == 'PUT' ? colors.green.bgWhite('PUT  '):
-				req.method == 'DELETE' ? colors.green.bgWhite('DELETE'):
-				req.method == 'PATCH' ? colors.green.bgWhite('PATCH') :
+				req.method == 'POST' ? colors.blue.bold('POST ') :
+				req.method == 'PUT' ? colors.blue.bold('PUT  '):
+				req.method == 'DELETE' ? colors.blue.bold('DELETE'):
+				req.method == 'PATCH' ? colors.blue.bold('PATCH') :
 				colors.green(req.method)
 			) + ' ' +
 			(
 				res.statusCode >= 400 ? colors.red(res.statusCode) :
 				colors.grey(res.statusCode)
 			) + ' ' +
-			req.url + ' ' +
+			req.originalUrl + ' ' +
 			colors.grey(res.responseTime + 'ms')
 		);
 
