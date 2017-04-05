@@ -23,7 +23,11 @@ module.exports = function(req, res, finish) {
 				colors.grey(res.statusCode)
 			) + ' ' +
 			req.originalUrl + ' ' +
-			colors.grey(res.responseTime + 'ms')
+			colors.grey(res.responseTime + 'ms') +
+			(
+				res.errorBody ? colors.grey(' (' + res.errorBody.toString() + ')')
+				: ''
+			)
 		);
 
 		res.end.apply(res, arguments);
