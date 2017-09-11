@@ -34,3 +34,19 @@ module.exports = function(req, res, finish) {
 	};
 	finish();
 };
+
+module.exports.socket = function() {
+	var action;
+
+	switch (this.event) {
+		case 'connect':
+		case 'disconnect':
+		case 'disconnecting':
+			action = colors.grey(this.event);
+			break;
+		default:
+			action = this.event || 'UNKNOWN EVENT';
+	}
+
+	console.log(colors.green('SOCK '), action, colors.grey('(' + this.socket.id + ')'));
+};
