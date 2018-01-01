@@ -3,7 +3,7 @@ var colors = require('chalk');
 var padEnd = function(input, len, padder) {
 	if (!padder) padder = ' ';
 	if (input.length < len) {
-		return padder.repeat(len - input.length);
+		return input + padder.repeat(len - input.length);
 	} else {
 		return input;
 	}
