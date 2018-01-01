@@ -40,7 +40,7 @@ module.exports.log = info => {
 			info.method == 'PUT' ? colors.blue.bold('PUT  '):
 			info.method == 'DELETE' ? colors.blue.bold('DELETE'):
 			info.method == 'PATCH' ? colors.blue.bold('PATCH') :
-			colors.green(padEnd(info.method, 5))
+			colors.magenta(padEnd(info.method, 5))
 		) + ' ' +
 		(
 			info.code >= 400 ? colors.red(info.code) :
