@@ -21,7 +21,7 @@ module.exports = function(req, res, finish) {
 			indent: indent,
 			method: req.method,
 			code: res.statusCode,
-			path: req.originalUrl,
+			path: unescape(req.originalUrl),
 			response: res.responseTime,
 			info: res.errorBody ? res.errorBody.toString() : '',
 		});
