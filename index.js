@@ -14,7 +14,6 @@ module.exports = function(req, res, finish) {
 	req.requestTime = new Date();
 	var indent = req.app.get('log.indent') || '';
 	res.end = function() {
-		res.responseTime = Date.now() - req.requestTime.getTime();
 		res.end = newEnd;
 
 		module.exports.log({
@@ -22,7 +21,7 @@ module.exports = function(req, res, finish) {
 			method: req.method,
 			code: res.statusCode,
 			path: unescape(req.originalUrl),
-			responseTime: res.responseTime,
+			responseTime: Date.now() - req.requestTime.getTime(),
 			info: res.errorBody ? res.errorBody.toString() : '',
 		});
 
@@ -47,7 +46,12 @@ module.exports.log = info => {
 			colors.grey(padEnd(info.code, 3))
 		) + ' ' +
 		(info.path ? info.path + ' ' : '') +
-		(info.responseTime ? colors.grey(info.responseTime + 'ms') : '' ) +
+		(
+			! info.responseTime ? ''
+			: info.responseTime < 500 ? colors.grey(info.responseTime + 'ms')
+			: info.responseTime < 5000 ? colors.yellow(info.responseTime + 'ms')
+			: colors.red(info.responseTime + 'ms')
+		) +
 		(info.info ? colors.grey(' (' + info.info + ')') : '')
 	);
 };

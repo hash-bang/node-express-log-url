@@ -8,4 +8,11 @@ describe('Simple tests', function() {
 		log.log({method: 'POST', code: 400, path: '/some/post', responseTime: 20, info: 'Lack of widgets'});
 	});
 
+	it('should show variable time colors', ()=> {
+		log.log({method: 'GET', code: 200, path: '/timing/none'});
+		log.log({method: 'GET', code: 200, path: '/timing/short', responseTime: 50});
+		log.log({method: 'GET', code: 200, path: '/timing/warn', responseTime: 3000});
+		log.log({method: 'GET', code: 200, path: '/timing/danger', responseTime: 6000});
+	});
+
 });
