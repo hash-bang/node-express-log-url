@@ -11,10 +11,10 @@ var padEnd = function(input, len, padder) {
 
 module.exports = function(req, res, finish) {
 	var newEnd = res.end;
-	req.requestTime = new Date;
+	req.requestTime = new Date();
 	var indent = req.app.get('log.indent') || '';
 	res.end = function() {
-		res.responseTime = (new Date) - req.requestTime;
+		res.responseTime = Date.now() - req.requestTime.getTime();
 		res.end = newEnd;
 
 		module.exports.log({
@@ -22,7 +22,7 @@ module.exports = function(req, res, finish) {
 			method: req.method,
 			code: res.statusCode,
 			path: unescape(req.originalUrl),
-			response: res.responseTime,
+			responseTime: res.responseTime,
 			info: res.errorBody ? res.errorBody.toString() : '',
 		});
 
