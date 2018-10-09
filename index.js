@@ -23,6 +23,7 @@ module.exports = function(req, res, finish) {
 			path: unescape(req.originalUrl),
 			responseTime: Date.now() - req.requestTime.getTime(),
 			info: res.errorBody ? res.errorBody.toString() : '',
+			username: req.user && req.user.username ? req.user.username : undefined,
 		});
 
 		res.end.apply(res, arguments);
@@ -51,6 +52,10 @@ module.exports.log = info => {
 			: info.responseTime < 500 ? colors.grey(info.responseTime + 'ms')
 			: info.responseTime < 5000 ? colors.yellow(info.responseTime + 'ms')
 			: colors.red(info.responseTime + 'ms')
+		) +
+		(
+			info.username ? ' ' + colors.grey('@' + info.username)
+			: ''
 		) +
 		(info.info ? colors.grey(' (' + info.info + ')') : '')
 	);
