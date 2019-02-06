@@ -1,4 +1,7 @@
-var colors = require('chalk');
+var Chalk = require('chalk');
+var colors = new Chalk.constructor();
+
+module.colors = colors;
 
 var padEnd = function(input, len, padder) {
 	if (!padder) padder = ' ';
