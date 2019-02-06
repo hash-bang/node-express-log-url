@@ -1,8 +1,6 @@
 var Chalk = require('chalk');
 var colors = new Chalk.constructor();
 
-module.colors = colors;
-
 var padEnd = function(input, len, padder) {
 	if (!padder) padder = ' ';
 	if (input.length < len) {
@@ -33,6 +31,8 @@ module.exports = function(req, res, finish) {
 	};
 	finish();
 };
+
+module.colors = colors;
 
 module.exports.log = info => {
 	console.log(
