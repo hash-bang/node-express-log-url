@@ -32,7 +32,7 @@ module.exports = function(req, res, finish) {
 	finish();
 };
 
-module.colors = colors;
+module.exports.colors = colors;
 
 module.exports.log = info => {
 	console.log(
