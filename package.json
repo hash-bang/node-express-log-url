@@ -1,6 +1,6 @@
 {
   "name": "express-log-url",
-  "version": "1.3.5",
+  "version": "1.3.6",
   "description": "ExpressJS pretty printer for URLs",
   "main": "index.js",
   "repository": {
