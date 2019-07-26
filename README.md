@@ -68,6 +68,7 @@ Options
 =======
 Set the following options via `app.set('OPTION', 'VALUE');`
 
-| Setting      | Type   | Default | Description               |
-|--------------|--------|---------|---------------------------|
-| `log.indent` | String | `null`  | Prefix for any log entry  |
+| Setting           | Type       | Default                                      | Description                           |
+|-------------------|------------|----------------------------------------------|---------------------------------------|
+| `log.indent`      | String     | `null`                                       | Prefix for any log entry              |
+| `log.username `   | Function   | `req => req.user ? req.user.username || req.user.email : false` | How to determine the current username |
