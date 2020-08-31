@@ -36,8 +36,10 @@ module.exports = function(req, res, finish) {
 
 module.exports.colors = colors;
 
+module.exports.logger = console.log;
+
 module.exports.log = info => {
-	console.log(
+	module.exports.logger(
 		(info.indent || '') +
 		(
 			info.method == 'GET' ? colors.green('GET  ') :

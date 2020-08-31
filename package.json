@@ -1,6 +1,6 @@
 {
   "name": "express-log-url",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "ExpressJS pretty printer for URLs",
   "main": "index.js",
   "repository": {
@@ -23,10 +23,10 @@
   },
   "homepage": "https://github.com/hash-bang/node-express-log-url#readme",
   "dependencies": {
-    "chalk": "^2.4.2"
+    "chalk": "^4.1.0"
   },
   "devDependencies": {
     "chai": "^4.2.0",
-    "mocha": "^6.2.0"
+    "mocha": "^8.1.3"
   }
 }
